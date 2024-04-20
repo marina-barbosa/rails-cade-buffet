@@ -10,7 +10,17 @@
   </head>
 
   <body>
-    <a>Cade Buffet</a>
+    <nav>
+      <ul>
+        <li> <%= link_to 'Cade Buffet', root_path %> </li>
+        <li> <%= button_to 'login/logout', root_path %> </li>
+      </ul>
+    </nav>
+
+    <div>
+      <%= alert %>
+      <%= notice %>
+    </div>
     <%= yield %>
   </body>
 </html>

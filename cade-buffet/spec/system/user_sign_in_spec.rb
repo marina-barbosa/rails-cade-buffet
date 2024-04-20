@@ -15,8 +15,8 @@ describe 'Usuário se autentica' do
         # Assert
         expect(page).to have_content 'Signed in successfully.'
         within('nav') do
-            expect(page).not_to have_link 'Entrar'
-            expect(page).to have_link 'Sair'
+            expect(page).not_to have_link 'Login'
+            expect(page).to have_button 'Sair'
             expect(page).to have_content 'flores@email.com'
         end
     end
@@ -34,9 +34,9 @@ describe 'Usuário se autentica' do
             click_on 'Sair'
         end
         # Assert
-        expect(page).to have_content 'User logout.'
-        expect(page).to have_link 'Entrar'
-        expect(page).not_to have_link 'Sair'
-        expect(page).not_to have_contant 'flores@email.com'
+        expect(page).to have_content 'Signed out successfully.'
+        expect(page).to have_link 'Login'
+        expect(page).not_to have_button 'Sair'
+        expect(page).not_to have_content 'flores@email.com'
     end
 end

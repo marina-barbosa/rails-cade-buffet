@@ -14,8 +14,8 @@
       <ul>
         <li> <%= link_to 'Cade Buffet', root_path %> </li>
         <% if user_signed_in? %>
-          <%= current_user.email %>
-          <li> <%= link_to 'Sair', root_path %> </li>
+          <li><%= current_user.email %>
+          <li><%= button_to 'Sair', destroy_user_session_path, method: :delete %> </li>
         <% else %>
           <li> <%= link_to 'Login', new_user_session_path %> </li>
         <% end %>

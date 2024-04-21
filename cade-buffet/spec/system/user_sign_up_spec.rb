@@ -18,5 +18,9 @@ describe 'Usuário se cadastra' do
         expect(page).to have_content 'dob@email.com'
         expect(page).to have_button 'Sair'
         expect(page).to have_content 'Welcome! You have signed up successfully.'
+        user = User.last
+        expect(user.name).to eq 'Dob Potter'
+        expect(user.cpf).to eq '12345678912'
+        expect(user.owner).to eq true
     end
 end

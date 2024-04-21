@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_20_082615) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_21_215412) do
+  create_table "addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "number"
+    t.string "neighborhood"
+    t.string "state"
+    t.string "city"
+    t.string "zip_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "buffets", force: :cascade do |t|
+    t.string "commercial_name"
+    t.string "legal_name"
+    t.string "cnpj"
+    t.string "email"
+    t.string "phone"
+    t.text "description"
+    t.integer "address_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_buffets_on_address_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -22,8 +46,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_20_082615) do
     t.boolean "owner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "buffet_id"
+    t.index ["buffet_id"], name: "index_users_on_buffet_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "buffets", "addresses"
+  add_foreign_key "users", "buffets"
 end

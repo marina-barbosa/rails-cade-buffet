@@ -7,7 +7,10 @@ describe 'Usuário se cadastra' do
         visit root_path
         click_on 'Login'
         click_on 'Criar uma conta'
+        fill_in 'Nome', with: 'Dob Potter'
         fill_in 'Email', with: 'dob@email.com'
+        fill_in 'CPF', with: '12345678912'
+        choose('Dono')
         fill_in 'Senha', with: '123456'
         fill_in 'Confirme sua Senha', with: '123456'
         click_on 'Criar conta'

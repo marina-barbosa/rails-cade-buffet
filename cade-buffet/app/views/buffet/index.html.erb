@@ -1,0 +1,6 @@
+<h1>Buffets</h1>
+<% @buffets.each do |buffet| %>
+    <%= link_to buffet_path(buffet) do %>
+        <div> <%= buffet.id %> - <%= buffet.commercial_name %> </div>
+    <% end %>
+<% end %>

@@ -1,0 +1,11 @@
+<h1><%= @buffet.id%> - <%= @buffet.commercial_name %></h1>
+
+<% if current_user && current_user.id == @buffet.user_id %>
+  <%= link_to 'Editar Buffet', edit_buffet_path(@buffet) %>
+<% end %>
+
+<div><%= @buffet.legal_name%></div>
+<div>CNPJ: <%= @buffet.cnpj%></div>
+<div>Email: <%= @buffet.email%></div>
+<div>Phone: <%= @buffet.phone%></div>
+<div>Descrição: <%= @buffet.description%></div>

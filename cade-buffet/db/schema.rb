@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_21_215412) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_22_055030) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "number"
@@ -32,7 +32,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_21_215412) do
     t.integer "address_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "payment_methods_id", null: false
     t.index ["address_id"], name: "index_buffets_on_address_id"
+    t.index ["payment_methods_id"], name: "index_buffets_on_payment_methods_id"
+  end
+
+  create_table "payment_methods", force: :cascade do |t|
+    t.boolean "credit_card"
+    t.boolean "debit_card"
+    t.boolean "pix"
+    t.boolean "ticket_payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,5 +64,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_21_215412) do
   end
 
   add_foreign_key "buffets", "addresses"
+  add_foreign_key "buffets", "payment_methods", column: "payment_methods_id"
   add_foreign_key "users", "buffets"
 end

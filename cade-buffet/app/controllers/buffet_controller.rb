@@ -23,6 +23,7 @@ class BuffetController < ApplicationController
             payment_methods_id: params[:buffet][:payment_methods_id].presence || nil,
             )
         if @buffet.save!
+            current_user.update(buffet_id: @buffet.id)
             return  redirect_to buffet_index_path
         end
         Rails.logger.error("Erro de validação: #{e.message}")

@@ -1,7 +1,9 @@
 <h1><%= @buffet.id%> - <%= @buffet.commercial_name %></h1>
 
-<% if current_user && current_user.id == @buffet.user_id %>
+<% if current_user && current_user.buffet_id == @buffet.id %>
   <%= link_to 'Editar Buffet', edit_buffet_path(@buffet) %>
+  <%= link_to 'Editar Endereço', new_address_path %>
+  <%= link_to 'Editar Metodos de Pagamento', new_payment_method_path %>
 <% end %>
 
 <div><%= @buffet.legal_name%></div>

@@ -19,12 +19,13 @@ class BuffetController < ApplicationController
             email: params[:buffet][:email],
             phone: params[:buffet][:phone],
             description: params[:buffet][:description],
-            address_id: params[:buffet][:address_id],
-            payment_methods_id: params[:buffet][:payment_method_id]
+            address_id: params[:buffet][:address_id].presence || nil,
+            payment_methods_id: params[:buffet][:payment_methods_id].presence || nil,
             )
-        if @buffet.save
-            return  redirect_to buffet_path
+        if @buffet.save!
+            return  redirect_to buffet_index_path
         end
+        Rails.logger.error("Erro de validação: #{e.message}")
         render :new
     end
 
@@ -40,11 +41,12 @@ class BuffetController < ApplicationController
             email: params[:buffet][:email],
             phone: params[:buffet][:phone],
             description: params[:buffet][:description],
-            address_id: params[:buffet][:address_id],
-            payment_methods_id: params[:buffet][:payment_method_id]
+            address_id: params[:buffet][:address_id].presence || nil,
+            payment_methods_id: params[:buffet][:payment_methods_id].presence || nil
             )
-        return  redirect_to buffet_path
+        return  redirect_to buffet_index_path
         end
+        Rails.logger.error("Erro de validação: #{e.message}")
         render :edit 
     end
 end

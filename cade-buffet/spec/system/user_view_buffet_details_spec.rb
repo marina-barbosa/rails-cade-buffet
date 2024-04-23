@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuario visita tela de Buffets' do
-    it 'e vê os buffets cadastrados' do
+describe 'Usuario visita tela de detalhes de Buffets' do 
+    it 'clica em ver detalhes e vê detalhes do buffet' do
         # Arrange
         address1 = Address.create!(
                  street: "Rua XV de Novembro",
@@ -53,9 +53,10 @@ describe 'Usuario visita tela de Buffets' do
             )
         # Act
         visit buffet_index_path
+        click_on('Buffet Sabores')
         # Assert
-        expect(page).to have_content(buffet1.commercial_name)
-        expect(page).to have_content(buffet2.commercial_name)
+        expect(page).to have_content('Buffet Sabores')
+        expect(page).to have_content('Buffet especializado em festas infantis.')
     end
 
     # it '' do

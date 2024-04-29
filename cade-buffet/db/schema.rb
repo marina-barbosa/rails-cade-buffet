@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_24_200514) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_29_124235) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "number"
@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_200514) do
     t.boolean "parking_service"
     t.boolean "valet"
     t.boolean "exclusive_buffet_location"
-    t.integer "price_id", null: false
+    t.integer "price_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "buffet_id"

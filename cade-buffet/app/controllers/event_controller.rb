@@ -6,6 +6,8 @@ class EventController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+
+    @price = Price.find(@event.price_id) if @event.price_id != nil
   end
 
   def new
@@ -13,6 +15,8 @@ class EventController < ApplicationController
   end
 
   def create
+    buffet_id = current_user.buffet_id
+    buffet = Buffet.find(buffet_id)
     @event = Event.new(
       name: params[:event][:name],
       description: params[:event][:description],
@@ -25,11 +29,9 @@ class EventController < ApplicationController
       valet: params[:event][:valet],
       exclusive_buffet_location: params[:event][:exclusive_buffet_location],
       price_id: params[:event][:price_id].presence || nil,
+      buffet_id: current_user.buffet_id,
     )
     if @event.save!
-      buffet_id = current_user.buffet_id
-      buffet = Buffet.find(buffet_id)
-      buffet.update(event_id: @event.id)
       return redirect_to buffet_path(buffet_id)
     end
     Rails.logger.error("Erro de validação: #{e.message}")

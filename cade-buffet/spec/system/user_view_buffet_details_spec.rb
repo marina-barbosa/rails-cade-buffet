@@ -7,8 +7,8 @@ describe 'Usuario visita tela de detalhes de Buffets' do
                  street: "Rua XV de Novembro",
                  number: "12",
                  neighborhood: "Centro",
-                 city: "Santos",
-                 state: "SP",
+                 city: "Campo Grande",
+                 state: "MS",
                  zip_code: "11005-000"
                 )
         address2 = Address.create!(
@@ -56,7 +56,20 @@ describe 'Usuario visita tela de detalhes de Buffets' do
         click_on('Buffet Sabores')
         # Assert
         expect(page).to have_content('Buffet Sabores')
+        expect(page).to have_content('123456789000000')
+        expect(page).to have_content('contato@buffetdelicias.com.br')
+        expect(page).to have_content('(13) 3222-1111')
         expect(page).to have_content('Buffet especializado em festas infantis.')
+
+        expect(page).to have_content('Rua 15 de Novembro')
+        expect(page).to have_content('13')
+        expect(page).to have_content('Centro')
+        expect(page).to have_content('Santos')
+        expect(page).to have_content('SP')
+        expect(page).to have_content('11000-000')
+        
+        expect(page).to have_content('Credit Card')
+        expect(page).to have_content('Debit Card')
     end
 
     # it '' do

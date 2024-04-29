@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_22_114332) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_24_200514) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "number"
@@ -37,11 +37,41 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_114332) do
     t.index ["payment_methods_id"], name: "index_buffets_on_payment_methods_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "min_people"
+    t.integer "max_people"
+    t.integer "default_event_duration_minutes"
+    t.boolean "alcoholic_drinks"
+    t.boolean "decoration"
+    t.boolean "parking_service"
+    t.boolean "valet"
+    t.boolean "exclusive_buffet_location"
+    t.integer "price_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "buffet_id"
+    t.index ["buffet_id"], name: "index_events_on_buffet_id"
+    t.index ["price_id"], name: "index_events_on_price_id"
+  end
+
   create_table "payment_methods", force: :cascade do |t|
     t.boolean "credit_card"
     t.boolean "debit_card"
     t.boolean "pix"
     t.boolean "ticket_payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.integer "base_price_weekdays"
+    t.integer "additional_person_price_weekdays"
+    t.integer "extra_event_hour_price_weekdays"
+    t.integer "base_price_weekend"
+    t.integer "additional_person_price_weekend"
+    t.integer "extra_event_hour_price_weekend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,5 +95,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_114332) do
 
   add_foreign_key "buffets", "addresses"
   add_foreign_key "buffets", "payment_methods", column: "payment_methods_id"
+  add_foreign_key "events", "buffets"
+  add_foreign_key "events", "prices"
   add_foreign_key "users", "buffets"
 end

@@ -1,0 +1,8 @@
+<h1>Payment Methods</h1>
+<% @payment_methods.each do |payment_method| %>
+    <div> 
+        <%= link_to payment_method_path(payment_method) do %>
+            <p> <%= payment_method.id %> - Payment %>
+        <% end %>
+    </div>
+<% end %>

@@ -1,0 +1,17 @@
+<h1><%= @event.name %></h1>
+<p><%= @event.description %></p>
+<h2>Capacidade</h2>
+<ul>
+  <li>Min. de Pessoas: <%= @event.min_people %></li>
+  <li>Máx. de Pessoas: <%= @event.max_people %></li>
+</ul>
+<h2>Duração Padrão</h2>
+<p><%= @event.default_event_duration_minutes / 60 %> horas (<%= @event.default_event_duration_minutes %> minutos)</p>
+<h2>Serviços</h2>
+<ul>
+  <li>Bebidas Alcoólicas: <%= @event.alcoholic_drinks ? 'Sim' : 'Não' %></li>
+  <li>Decoração: <%= @event.decoration ? 'Sim' : 'Não' %></li>
+  <li>Serviço de Estacionamento: <%= @event.parking_service ? 'Sim' : 'Não' %></li>
+  <li>Serviço de Valet: <%= @event.valet ? 'Sim' : 'Não' %></li>
+  <li>Local Exclusivo para Buffet: <%= @event.exclusive_buffet_location ? 'Sim' : 'Não' %></li>
+</ul>

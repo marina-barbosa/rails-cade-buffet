@@ -1,0 +1,12 @@
+<h1>Address</h1>
+<% @addresses.each do |address| %>
+    <div> 
+        <%= link_to address_path(address) do %>
+            <%= address.id %> - <%= address.street %>, <%= address.number %>,
+            <%=address.neighborhood %>, 
+            <%= address.city %> - <%= address.state %> | <%= address.zip_code %>
+        <% end %>
+    </div>
+<% end %>
+
+

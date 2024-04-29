@@ -7,8 +7,8 @@ describe 'Usuario visita tela de Buffets' do
                  street: "Rua XV de Novembro",
                  number: "12",
                  neighborhood: "Centro",
-                 city: "Santos",
-                 state: "SP",
+                 city: "Campo Grande",
+                 state: "MS",
                  zip_code: "11005-000"
                 )
         address2 = Address.create!(
@@ -17,7 +17,7 @@ describe 'Usuario visita tela de Buffets' do
                  neighborhood: "Centro",
                  city: "Santos",
                  state: "SP",
-                 zip_code: "11000-000"
+                 zip_code: "14500-000"
                 )
         payments1 = PaymentMethod.create!(
             credit_card: true,
@@ -55,7 +55,11 @@ describe 'Usuario visita tela de Buffets' do
         visit buffet_index_path
         # Assert
         expect(page).to have_content(buffet1.commercial_name)
+        expect(page).to have_content('Campo Grande') 
+        expect(page).to have_content('MS') 
         expect(page).to have_content(buffet2.commercial_name)
+        expect(page).to have_content('Santos') 
+        expect(page).to have_content('SP') 
     end
 
     # it '' do

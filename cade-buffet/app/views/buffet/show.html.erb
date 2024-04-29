@@ -1,13 +1,58 @@
 <h1><%= @buffet.id%> - <%= @buffet.commercial_name %></h1>
-
 <% if current_user && current_user.buffet_id == @buffet.id %>
-  <%= link_to 'Editar Buffet', edit_buffet_path(@buffet) %>
-  <%= link_to 'Editar Endereço', new_address_path %>
-  <%= link_to 'Editar Metodos de Pagamento', new_payment_method_path %>
+  <%= link_to 'Editar Buffet', edit_buffet_path(@buffet) %> | 
+  <% if @address %>
+    <%= link_to 'Editar Endereço', edit_address_path %> | 
+  <% else %>
+    <%= link_to 'Adicionar Endereço', new_address_path %> | 
+  <% end %>
+  <% if @payments %>
+    <%= link_to 'Editar Metodos de Pagamento', edit_payment_method_path %> |
+  <% else %>
+    <%= link_to 'Adicionar Metodos de Pagamento', new_payment_method_path %> |
+  <% end %>
+  <% if @events.length > 0 %>
+    <%= link_to 'Editar Evento', edit_event_path %>
+  <% else %>
+    <%= link_to 'Adicionar Evento', new_event_path %>
+  <% end %>
 <% end %>
-
-<div><%= @buffet.legal_name%></div>
 <div>CNPJ: <%= @buffet.cnpj%></div>
 <div>Email: <%= @buffet.email%></div>
 <div>Phone: <%= @buffet.phone%></div>
 <div>Descrição: <%= @buffet.description%></div>
+<h2>Endereço</h2>
+<div>Rua: <%= @address.street%></div>
+<div>Numero: <%= @address.number%></div>
+<div>Bairro: <%= @address.neighborhood%></div>
+<div>Cidade: <%= @address.city%></div>
+<div>Estado: <%= @address.state%></div>
+<div>CEP: <%= @address.zip_code%></div>
+<h2>Metodos de Pagamento</h2>
+<div>Credit Card: <%= @payments.credit_card ? 'Sim' : 'Não' %></div>
+<div>Debit Card: <%= @payments.debit_card ? 'Sim' : 'Não' %></div>
+<div>PIX: <%= @payments.pix ? 'Sim' : 'Não' %></div>
+<div>Ticket Payment: <%= @payments.ticket_payment ? 'Sim' : 'Não' %></div>
+<h2>Eventos</h2>
+<% @events.each do |event| %>
+  <div>
+    <h3> <%= event.id %> - <%= event.name %> </h3>
+    <h1><%= event.name %></h1>
+    <p><%= event.description %></p>
+    <h2>Capacidade</h2>
+    <ul>
+      <li>Min. de Pessoas: <%= event.min_people %></li>
+      <li>Máx. de Pessoas: <%= event.max_people %></li>
+    </ul>
+    <h2>Duração Padrão</h2>
+    <p><%= event.default_event_duration_minutes / 60 %> horas (<%= event.default_event_duration_minutes %> minutos)</p>
+    <h2>Serviços</h2>
+    <ul>
+      <li>Bebidas Alcoólicas: <%= event.alcoholic_drinks ? 'Sim' : 'Não' %></li>
+      <li>Decoração: <%= event.decoration ? 'Sim' : 'Não' %></li>
+      <li>Serviço de Estacionamento: <%= event.parking_service ? 'Sim' : 'Não' %></li>
+      <li>Serviço de Valet: <%= event.valet ? 'Sim' : 'Não' %></li>
+      <li>Local Exclusivo para Buffet: <%= event.exclusive_buffet_location ? 'Sim' : 'Não' %></li>
+    </ul>
+  </div>
+<% end %>

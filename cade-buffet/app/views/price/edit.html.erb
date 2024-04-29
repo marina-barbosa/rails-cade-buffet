@@ -1,0 +1,16 @@
+<h1>Editando Preços <%= @price.id %></h1>
+<%= form_with model: @price, url: price_path(@price), method: :patch do |f| %>
+  <%= f.label :base_price_weekdays %>
+  <%= f.number_field :base_price_weekdays %>
+  <%= f.label :additional_person_price_weekdays %>
+  <%= f.number_field :additional_person_price_weekdays %>
+  <%= f.label :extra_event_hour_price_weekdays %>
+  <%= f.number_field :extra_event_hour_price_weekdays %>
+  <%= f.label :base_price_weekend %>
+  <%= f.number_field :base_price_weekend %>
+  <%= f.label :additional_person_price_weekend %>
+  <%= f.number_field :additional_person_price_weekend %>
+  <%= f.label :extra_event_hour_price_weekend %>
+  <%= f.number_field :extra_event_hour_price_weekend %>
+  <%= f.submit 'Salvar' %>
+<% end %>

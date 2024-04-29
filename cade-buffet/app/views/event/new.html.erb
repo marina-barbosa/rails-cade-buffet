@@ -1,0 +1,22 @@
+<h1>Cadastrar Novo Evento</h1>
+<%= form_with model: @event, url: '/event' do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :min_people %>
+  <%= f.number_field :min_people %>
+  <%= f.label :max_people %>
+  <%= f.number_field :max_people %>
+  <%= f.label :default_event_duration_minutes %>
+  <%= f.number_field :default_event_duration_minutes %>
+  <%= f.label :alcoholic_drinks %>
+  <%= f.check_box :alcoholic_drinks %>
+  <%= f.label :decoration %>
+  <%= f.check_box :decoration %>
+  <%= f.label :parking_service %>
+  <%= f.check_box :parking_service %>
+  <%= f.label :valet %>
+  <%= f.check_box :valet %>
+  <%= f.label :exclusive_buffet_location %>
+  <%= f.check_box :exclusive_buffet_location %>
+  <%= f.submit 'Salvar' %>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Endereço - <%= @address.id%></h1>
+
+<% if current_user && current_user.address_id == @address.id %>
+  <%= link_to 'Editar Endereço', edit_address_path(@address.id) %> 
+<% end %>
+
+<div>Rua: <%= @address.street%></div>
+<div>Numero: <%= @address.number%></div>
+<div>Bairro: <%= @address.neighborhood%></div>
+<div>Cidade: <%= @address.city%></div>
+<div>Estado: <%= @address.state%></div>
+<div>CEP: <%= @address.zip_code%></div>

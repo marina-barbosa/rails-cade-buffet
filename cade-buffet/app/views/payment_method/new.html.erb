@@ -1,0 +1,17 @@
+<h1>Cadastrar Novo Metodo de Pagamento</h1>
+
+<%= form_with model: @payment_method, url: '/payment_method' do |f| %>
+  <%= f.label :credit_card %>
+  <%= f.check_box  :credit_card %>
+    <br>    
+  <%= f.label :debit_card %>
+  <%= f.check_box  :debit_card %>
+    <br>
+  <%= f.label :pix %>
+  <%= f.check_box  :pix %>
+    <br>
+  <%= f.label :ticket_payment %>
+  <%= f.check_box  :ticket_payment %>
+    <br>
+  <%= f.submit 'Salvar' %>
+<% end %>

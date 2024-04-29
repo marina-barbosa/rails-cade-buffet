@@ -1,0 +1,12 @@
+
+<h1>Payment - <%= @payment_method.id%></h1>
+
+<% if current_user && current_user.payment_method_id == @payment_method.id %>
+  <%= link_to 'Editar Metodo de Pagamento', edit_payment_method_path(@payment_method.id) %> 
+<% end %>
+
+<div>Credit Card: <%= @payment_method.credit_card ? 'Sim' : 'Não' %></div>
+<div>Debit Card: <%= @payment_method.debit_card ? 'Sim' : 'Não' %></div>
+<div>PIX: <%= @payment_method.pix ? 'Sim' : 'Não' %></div>
+<div>Ticket Payment: <%= @payment_method.ticket_payment ? 'Sim' : 'Não' %></div>
+

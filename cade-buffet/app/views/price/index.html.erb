@@ -1,0 +1,22 @@
+<h1>Preços Index</h1>
+<% @prices.each do |price| %>
+    <h2><%= price.id %></h2>
+    <h2>weekdays</h2>
+    <div> 
+        <%= link_to price_path(price) do %>            
+            <%= price.base_price_weekdays %><br>
+            <%= price.additional_person_price_weekdays %> <br>
+            <%= price.extra_event_hour_price_weekdays %><br>
+        <% end %>
+    </div>
+    <h2>weekend</h2>
+    <div> 
+        <%= link_to price_path(price) do %>
+            <%= price.base_price_weekend %><br>
+            <%= price.additional_person_price_weekend %> <br>
+            <%= price.extra_event_hour_price_weekend %><br>
+        <% end %>
+    </div>
+<% end %>
+
+

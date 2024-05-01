@@ -45,16 +45,16 @@ class EventController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(
-      name: params[:event][:name],
-      description: params[:event][:description],
-      min_people: params[:event][:min_people],
-      max_people: params[:event][:max_people],
-      default_event_duration_minutes: params[:event][:default_event_duration_minutes],
-      alcoholic_drinks: params[:event][:alcoholic_drinks],
-      decoration: params[:event][:decoration],
-      parking_service: params[:event][:alcoholicparking_service_drinks],
-      valet: params[:event][:valet],
-      exclusive_buffet_location: params[:event][:exclusive_buffet_location],
+      name: params[:name],
+      description: params[:description],
+      min_people: params[:min_people],
+      max_people: params[:max_people],
+      default_event_duration_minutes: params[:default_event_duration_minutes],
+      alcoholic_drinks: params[:alcoholic_drinks],
+      decoration: params[:decoration],
+      parking_service: params[:alcoholicparking_service_drinks],
+      valet: params[:valet],
+      exclusive_buffet_location: params[:exclusive_buffet_location],
     )
       buffet_id = current_user.buffet_id
       return redirect_to buffet_path(buffet_id)

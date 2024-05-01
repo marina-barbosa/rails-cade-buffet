@@ -35,9 +35,9 @@
     <p> <strong><%= event.id %> - <%= event.name %>:</strong> <%= event.description %></p>
     <% if current_user && current_user.buffet_id == event.buffet_id %>
       <%= link_to 'Editar Evento', edit_event_path(event) %> | 
-      <% @price = Price.find(event.price_id) if event.price_id != nil%>
-      <% if @price %>
-        <%= link_to 'Editar Preço', edit_price_path(@price) %>
+      <% price = Price.find(event.price_id) if event.price_id != nil%>
+      <% if price %>
+        <%= link_to 'Editar Preço', edit_price_path(price) %>
       <% else %>
         <%= link_to 'Adicionar Preço', new_price_path %>
       <% end %>
@@ -52,5 +52,15 @@
     <div>Serviço de Estacionamento: <%= event.parking_service ? 'Sim' : 'Não' %></div>
     <div>Serviço de Valet: <%= event.valet ? 'Sim' : 'Não' %></div>
     <div>Local Exclusivo para Buffet: <%= event.exclusive_buffet_location ? 'Sim' : 'Não' %></div>
+  </div>
+  <div>
+    <h3>Preços weekdays</h3>
+    <div>Preço Base: <%= price.base_price_weekdays%></div>
+    <div>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekdays%></div>
+    <div>Hora Extra: <%= price.extra_event_hour_price_weekdays%></div>
+    <h3>Preços weekend</h3>
+    <div>Preço Base: <%= price.base_price_weekend%></div>
+    <div>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekend%></div>
+    <div>Hora Extra: <%= price.extra_event_hour_price_weekend%></div>
   </div>
 <% end %>

@@ -11,7 +11,8 @@
   <% else %>
     <%= link_to 'Adicionar Metodos de Pagamento', new_payment_method_path %> |
   <% end %>
-  <%= link_to 'Adicionar Evento', new_event_path %>
+  <%= link_to 'Adicionar Evento', new_event_path %> |
+  <%= link_to 'Gerenciar Pedidos', order_index_path %>
 <% end %>
 <div>CNPJ: <%= @buffet.cnpj%></div>
 <div>Email: <%= @buffet.email%></div>
@@ -33,9 +34,9 @@
 <% @events.each do |event| %>
   <div>
     <p> <strong><%= event.id %> - <%= event.name %>:</strong> <%= event.description %></p>
+    <% price = Price.find(event.price_id) if event.price_id != nil%>
     <% if current_user && current_user.buffet_id == event.buffet_id %>
       <%= link_to 'Editar Evento', edit_event_path(event) %> | 
-      <% price = Price.find(event.price_id) if event.price_id != nil%>
       <% if price %>
         <%= link_to 'Editar Preço', edit_price_path(price) %>
       <% else %>
@@ -63,4 +64,5 @@
     <div>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekend%></div>
     <div>Hora Extra: <%= price.extra_event_hour_price_weekend%></div>
   </div>
+  <%= link_to 'Registrar Pedido', new_order_path(buffet_id: @buffet.id, event_id: event.id) %>
 <% end %>

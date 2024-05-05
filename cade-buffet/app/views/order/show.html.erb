@@ -1,0 +1,23 @@
+<h1>show order works</h1>
+<h1><%= @order.code %></h1>
+<% if @orders_same_day.present? %>
+  <div>
+    <strong>Atenção!</strong> Existem outros pedidos para esse mesmo dia.
+  </div>
+<% end %>
+<ul>
+  <li><%= @order.date %></li>
+  <li><%= @order.guest_count %></li>
+  <li><%= @order.more_details %></li>
+  <li><%= @order.event_exclusive_address %></li>
+  <li><%= @order.address %></li>
+  <li><%= @order.status %></li>
+  <li><%= @order.user_id %></li>
+  <li><%= @order.buffet_id %></li>
+  <li><%= @order.event_id %></li>
+</ul>
+<% if current_user.owner && @order.status == "awaiting_buffet_evaluation" %>
+  <%= link_to 'Aprovar Pedido', edit_order_path(@order, total_value: @total_value) %>
+<% elsif !current_user.owner && @order.status == "order_confirmed" %>
+  <%= link_to 'Confirmar Pedido', edit_order_path(@order, total_value: @total_value) %>
+<% end %>

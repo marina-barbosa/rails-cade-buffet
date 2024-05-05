@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_29_124235) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_04_062523) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "number"
@@ -56,6 +56,30 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_124235) do
     t.index ["price_id"], name: "index_events_on_price_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "code"
+    t.integer "user_id", null: false
+    t.integer "buffet_id", null: false
+    t.integer "event_id", null: false
+    t.date "date"
+    t.integer "guest_count"
+    t.text "more_details"
+    t.boolean "event_exclusive_address"
+    t.text "address"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "final_value"
+    t.date "expiration_date"
+    t.integer "extra_fee"
+    t.integer "discount"
+    t.text "description"
+    t.string "payment_method"
+    t.index ["buffet_id"], name: "index_orders_on_buffet_id"
+    t.index ["event_id"], name: "index_orders_on_event_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "payment_methods", force: :cascade do |t|
     t.boolean "credit_card"
     t.boolean "debit_card"
@@ -97,5 +121,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_124235) do
   add_foreign_key "buffets", "payment_methods", column: "payment_methods_id"
   add_foreign_key "events", "buffets"
   add_foreign_key "events", "prices"
+  add_foreign_key "orders", "buffets"
+  add_foreign_key "orders", "events"
+  add_foreign_key "orders", "users"
   add_foreign_key "users", "buffets"
 end

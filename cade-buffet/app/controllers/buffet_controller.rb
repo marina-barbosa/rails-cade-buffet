@@ -7,11 +7,11 @@ class BuffetController < ApplicationController
   def show
     @buffet = Buffet.find(params[:id])
 
+    @events = Event.where(buffet_id: @buffet.id)
+
     @address = Address.find(@buffet.address_id) if @buffet.address_id != nil
 
     @payments = PaymentMethod.find(@buffet.payment_methods_id) if @buffet.payment_methods_id != nil
-
-    @events = Event.where(buffet_id: @buffet.id)
   end
 
   def new

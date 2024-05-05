@@ -1,0 +1,10 @@
+<% if @results.present? %>
+  <h2>Resultados da busca: </h2>
+  <% @results.each do |result| %>
+    <div>
+      <%= result.commercial_name %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Nenhum resultado encontrado.</p>
+<% end %>

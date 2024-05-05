@@ -28,7 +28,7 @@ class EventController < ApplicationController
       parking_service: params[:event][:alcoholicparking_service_drinks],
       valet: params[:event][:valet],
       exclusive_buffet_location: params[:event][:exclusive_buffet_location],
-      price_id: params[:event][:price_id].presence || nil,
+      price_id: params[:event][:price_id].presence || 1,
       buffet_id: current_user.buffet_id,
     )
     if @event.save!

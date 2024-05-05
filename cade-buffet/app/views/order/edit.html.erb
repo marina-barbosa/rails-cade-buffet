@@ -1,0 +1,88 @@
+<h1>Aprovando Pedido</h1>
+<h3><%= @order.code %></h3>
+<ul>
+  <li><%= @order.date %></li>
+  <li><%= @order.guest_count %></li>
+  <li><%= @order.more_details %></li>
+  <li><%= @order.event_exclusive_address %></li>
+  <% if @order.address.present? %>
+    <li><%= @order.address %></li>
+  <%end%>
+  <li><%= @order.status %></li>
+  <li><%= @order.user_id %></li>
+  <li><%= @order.buffet_id %></li>
+  <li><%= @order.event_id %></li>
+</ul>
+<%if current_user.owner %>
+  <% if @orders_same_day.present? %>
+    <div>
+      <strong>Atenção!</strong> Existem outros pedidos para esse mesmo dia.
+    </div>
+  <% end %>
+  <%= form_with model: @order, url: order_path(@order), method: :patch do |form| %>
+    <div class="field">
+      <%= form.label :expiration_date %>
+      <%= form.date_field :expiration_date %>
+    </div>
+    <div class="field">
+      <%= form.label :value_type, 'Tipo:' %>
+      <%= form.radio_button :value_type, 1, checked: (params[:value_type].to_i == 1) %> extra_fee
+      <%= form.radio_button :value_type, 0, checked: (params[:value_type].to_i == 0) %> discount
+    </div>
+    <div class="field">
+      <%= form.label :fee_or_discount, 'Valor:' %>
+      <%= form.number_field :fee_or_discount, step: 0.01, id: 'fee' %>
+    </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+    <span>Valor total ate agora: </span>
+    <span class="field" id="total_value">
+      <%= @total_value %>
+    </span>
+    <%= form.hidden_field :total_value, value: @total_value %>
+    <div class="field">
+      <%= form.label :final_value %>
+      <%= form.number_field :final_value, step: 0.01 %>
+    </div>
+    <p>Valor estimado: </p>
+    <div id="resultado"></div>
+    <div class="actions">
+      <%= form.submit 'Aprovar' %>
+    </div>
+  <% end %>
+<% end %>
+///
+<%= form_with(model: @order, url: conclude_order_path(@order), method: 'patch') do |form| %>
+  <% if !current_user.owner %>
+    <p>Escolha a Forma de Pagamento:</p>
+    <% if @payment_methods.credit_card %>
+      <%= form.radio_button :payment_method, "credit_card", checked: (params[:payment_method] == "credit_card") %> Credit Card <br>
+    <% end %>
+    <% if @payment_methods.debit_card %>
+      <%= form.radio_button :payment_method, "debit_card", checked: (params[:payment_method] == "debit_card") %> Debit Card <br>
+    <% end %>
+    <% if @payment_methods.pix %>
+      <%= form.radio_button :payment_method, "pix", checked: (params[:payment_method] == "pix") %> Pix <br>
+    <% end %>
+    <% if @payment_methods.ticket_payment %>
+      <%= form.radio_button :payment_method, "ticket_payment", checked: (params[:payment_method] == "ticket_payment") %> Ticket Payment <br>
+    <% end %>
+    <div><%= form.submit 'Concluir' %></div>
+  <% end %>
+<% end %>
+////
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var input = document.getElementById('fee');
+    var resultado = document.getElementById('resultado');
+    var totalValue = document.getElementById('total_value');
+
+    input.addEventListener('input', function() {
+      var valorEstimado = parseFloat(input.value);
+      var total = parseFloat(totalValue.textContent);
+      resultado.textContent = valorEstimado + total;
+    });
+  });
+</script>

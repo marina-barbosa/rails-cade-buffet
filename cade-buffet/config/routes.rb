@@ -12,4 +12,13 @@ Rails.application.routes.draw do
   resources :order, only: [:index, :new, :create, :show, :edit, :update] do
     patch :conclude, on: :member
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :buffet, only: [:index, :show]
+      resources :events, only: [:index], param: :buffet_id do
+        post 'check_availability', on: :collection
+      end
+    end
+  end
 end

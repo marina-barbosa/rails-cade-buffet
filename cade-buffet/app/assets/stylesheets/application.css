@@ -1,3 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+:root {
+ --black: #000;
+ --gray: #666;
+ --green1: #4CCD99;
+ --green2: #007F73;
+ --green3: #004225;
+ --yellow1: #FFF455;
+ --yellow2: #FFC700;
+ --yellow3: #FFB000;
+ --cream1: #F5F5DC;
+ --cream2: #FFCF9D;
+ --white1: #fff;
+ --white2: #eee;
+}
+
+* {
+    font-family: "Open Sans", sans-serif;
+    /* font-family: "Lobster", sans-serif; */
+    /* font-family: "Satisfy", cursive; */
+    /* font-family: "Great Vibes", cursive; */
+    /* font-family: "Cookie", cursive; */
+    list-style: none;
+}
+
 nav ul {
     display: flex;
     gap: 60px;

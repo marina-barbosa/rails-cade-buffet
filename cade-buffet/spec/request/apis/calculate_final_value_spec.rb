@@ -9,7 +9,7 @@ describe "#calculate_final_value" do
   end
 
   context "when the event is on a weekend" do
-    @date = Date.today.saturday
+    @date = Date.today.saturday?
 
     it "calculates the final value correctly" do
       expect(calculate_final_value(@event.id, @date, 10)).to eq(120)

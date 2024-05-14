@@ -3,14 +3,17 @@ require "rails_helper"
 RSpec.describe "Buffet API", type: :request do
   describe "GET /api/v1/buffet/:id" do
     # Arrange
-    buffet1 = Buffet.create!(
-      commercial_name: "Sabor do Oriente",
-      legal_name: "Sabor do Oriente Gastronomia e Eventos Ltda",
-      cnpj: "12345678901234",
-      email: "contato@sabordooriente.com",
-      phone: "(00) 1234-5678",
-      description: "O Sabor do Oriente traz o melhor da culinária árabe.",
-    )
+    before(:each) do
+      Buffet.delete_all
+      buffet1 = Buffet.create!(
+        commercial_name: "Sabor do Oriente",
+        legal_name: "Sabor do Oriente Gastronomia e Eventos Ltda",
+        cnpj: "12345678901234",
+        email: "contato@sabordooriente.com",
+        phone: "(00) 1234-5678",
+        description: "O Sabor do Oriente traz o melhor da culinária árabe.",
+      )
+    end
 
     it "retorna detalhes de um buffet específico sem CNPJ e razão social" do
       # Act

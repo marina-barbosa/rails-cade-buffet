@@ -11,6 +11,6 @@ class Api::V1::BuffetController < ActionController::API
 
   def show
     buffet = Buffet.find(params[:id])
-    render status: 200, json: buffet.except(:cnpj, :legal_name)
+    render status: 200, json: buffet.attributes.except('cnpj', 'legal_name')
   end
 end

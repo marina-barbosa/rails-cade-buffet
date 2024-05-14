@@ -10,8 +10,10 @@ class Api::V1::EventController < ActionController::API
     date = params[:date]
     guest_count = params[:guest_count]
 
+    date = Date.parse(date)
+
     event = Event.find_by(id: event_id)
-    if event && event.available?(date, guest_count)
+    if event && check_event_availability(event, date, guest_count)
       final_value = calculate_final_value(event_id, date, guest_count)
       render status: 200, json: { message: "Evento disponível", final_value: final_value }
     else
@@ -21,14 +23,14 @@ class Api::V1::EventController < ActionController::API
 
   private
 
-  def available?(date, guest_count)
-    return false unless self
+  def check_event_availability(event, date, guest_count)
+    return false unless event
 
-    return false if guest_count <= 0 || guest_count > max_people
+    return false if guest_count <= 0 || guest_count > event.max_people
 
     return false if date < Date.today
 
-    orders = Order.where(event_id: self.id, date: date, status: 1)
+    orders = Order.where(event_id: event.id, date: date, status: 1)
     return false if orders.any?
 
     true

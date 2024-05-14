@@ -15,9 +15,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :buffet, only: [:index, :show]
-      resources :events, only: [:index], param: :buffet_id do
-        post 'check_availability', on: :collection
+      resources :buffet, only: [:index, :show] do
+        resources :event, only: [:index], param: :buffet_id do
+          post 'check_availability', on: :collection
+        end
       end
     end
   end

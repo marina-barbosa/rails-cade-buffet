@@ -17,16 +17,16 @@ PaymentMethod.create!(
 # Criando endereços
 Address.create!(
   [
-    { street: "Rua Paulista", number: "1000", neighborhood: "Bela Vista", city: "São Paulo", state: "SP", zip_code: "01310-100" },
-    { street: "Avenida Brigadeiro Faria Lima", number: "2000", neighborhood: "Itaim Bibi", city: "São Paulo", state: "SP", zip_code: "01452-000" },
-    { street: "Rua Oscar Freire", number: "900", neighborhood: "Jardins", city: "São Paulo", state: "SP", zip_code: "01426-001" },
-    { street: "Avenida Paulista", number: "1500", neighborhood: "Cerqueira César", city: "São Paulo", state: "SP", zip_code: "01310-200" },
-    { street: "Rua do Lavradio", number: "71", neighborhood: "Centro", city: "Rio de Janeiro", state: "RJ", zip_code: "20230-070" },
-    { street: "Rua Barata Ribeiro", number: "716", neighborhood: "Copacabana", city: "Rio de Janeiro", state: "RJ", zip_code: "22040-002" },
-    { street: "Avenida Atlântica", number: "1702", neighborhood: "Copacabana", city: "Rio de Janeiro", state: "RJ", zip_code: "22021-001" },
-    { street: "Rua Visconde de Pirajá", number: "550", neighborhood: "Ipanema", city: "Rio de Janeiro", state: "RJ", zip_code: "22410-003" },
-    { street: "Rua Maria Quitéria", number: "27", neighborhood: "Ipanema", city: "Rio de Janeiro", state: "RJ", zip_code: "22410-040" },
-    { street: "Avenida Vieira Souto", number: "500", neighborhood: "Ipanema", city: "Rio de Janeiro", state: "RJ", zip_code: "22420-004" },
+    { street: "Rua Paulista", number: "1000", neighborhood: "Bela Vista", city: "São Paulo", state: "SP", zip_code: "01310" },
+    { street: "Avenida Brigadeiro Faria Lima", number: "2000", neighborhood: "Itaim Bibi", city: "São Paulo", state: "SP", zip_code: "01452" },
+    { street: "Rua Oscar Freire", number: "900", neighborhood: "Jardins", city: "São Paulo", state: "SP", zip_code: "01426" },
+    { street: "Avenida Paulista", number: "1500", neighborhood: "Cerqueira César", city: "São Paulo", state: "SP", zip_code: "01310" },
+    { street: "Rua do Lavradio", number: "71", neighborhood: "Centro", city: "Rio de Janeiro", state: "RJ", zip_code: "20230" },
+    { street: "Rua Barata Ribeiro", number: "716", neighborhood: "Copacabana", city: "Rio de Janeiro", state: "RJ", zip_code: "22040" },
+    { street: "Avenida Atlântica", number: "1702", neighborhood: "Copacabana", city: "Rio de Janeiro", state: "RJ", zip_code: "22021" },
+    { street: "Rua Visconde de Pirajá", number: "550", neighborhood: "Ipanema", city: "Rio de Janeiro", state: "RJ", zip_code: "22410" },
+    { street: "Rua Maria Quitéria", number: "27", neighborhood: "Ipanema", city: "Rio de Janeiro", state: "RJ", zip_code: "22410" },
+    { street: "Avenida Vieira Souto", number: "500", neighborhood: "Ipanema", city: "Rio de Janeiro", state: "RJ", zip_code: "22420" },
   ]
 )
 
@@ -91,34 +91,34 @@ Event.create!(
 # Criando usuários
 User.create!(
   [
-    { email: "hortency@email.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "Hortência Flores", cpf: "123.456.789-01", owner: true, buffet_id: 1 },
-    { email: "partyplanner@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "PartyPlannerPro", cpf: "987.222.321-09", owner: true, buffet_id: 2 },
-    { email: "banquetking@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "BanquetKing", cpf: "987.333.321-09", owner: true, buffet_id: 3 },
-    { email: "foodie@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "FoodieFun", cpf: "321.555.444-01", owner: true, buffet_id: 4 },
-    { email: "eventsrus@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "EventsRUs", cpf: "789.321.987-09", owner: true, buffet_id: 5 },
-    { email: "celebrationsgalore@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "CelebrationsGalore", cpf: "666.666.666-01", owner: true, buffet_id: 6 },
-    { email: "partyparadise@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "PartyParadise", cpf: "101.202.303-09", owner: true, buffet_id: 7 },
-    { email: "banquethost@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "BanquetHost", cpf: "555.888.777-01", owner: true, buffet_id: 8 },
-    { email: "eventexpert@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "EventExpert", cpf: "333.444.555-09", owner: true, buffet_id: 9 },
-    { email: "partyplannerextraordinaire@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "PartyPlannerExtraordinaire", cpf: "777.999.333-01", owner: true, buffet_id: 10 },
-    { email: "isaac@gmail.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "Isaac Quincy", cpf: "777.888.999-00", owner: false, buffet_id: nil },
-    { email: "olivia.client@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "Olivia Client", cpf: "111.222.333-44", owner: false, buffet_id: nil },
-    { email: "pablo.partygoer@example.com", encrypted_password: "$2a$12$yddcBgeR9j8exg1TyDUyku4rXu0ZqYp9YXUQuzhF0O.FiWPKL9/oi", name: "Pablo Partygoer", cpf: "444.555.666-77", owner: false, buffet_id: nil },
+    { email: "hortency@email.com", password: '123456', password_confirmation: '123456', name: "Hortência Flores", cpf: "12345678901", owner: true, buffet_id: 1 },
+    { email: "partyplanner@example.com", password: '123456', password_confirmation: '123456', name: "PartyPlannerPro", cpf: "98722232109", owner: true, buffet_id: 2 },
+    { email: "banquetking@example.com", password: '123456', password_confirmation: '123456', name: "BanquetKing", cpf: "98733332109", owner: true, buffet_id: 3 },
+    { email: "foodie@example.com", password: '123456', password_confirmation: '123456', name: "FoodieFun", cpf: "32155544401", owner: true, buffet_id: 4 },
+    { email: "eventsrus@example.com", password: '123456', password_confirmation: '123456', name: "EventsRUs", cpf: "78932198709", owner: true, buffet_id: 5 },
+    { email: "celebrationsgalore@example.com", password: '123456', password_confirmation: '123456', name: "CelebrationsGalore", cpf: "66666666601", owner: true, buffet_id: 6 },
+    { email: "partyparadise@example.com", password: '123456', password_confirmation: '123456', name: "PartyParadise", cpf: "10120230309", owner: true, buffet_id: 7 },
+    { email: "banquethost@example.com", password: '123456', password_confirmation: '123456', name: "BanquetHost", cpf: "55588877701", owner: true, buffet_id: 8 },
+    { email: "eventexpert@example.com", password: '123456', password_confirmation: '123456', name: "EventExpert", cpf: "33344455509", owner: true, buffet_id: 9 },
+    { email: "partyplannerextraordinaire@example.com", password: '123456', password_confirmation: '123456', name: "PartyPlannerExtraordinaire", cpf: "77799933301", owner: true, buffet_id: 10 },
+    { email: "isaac@gmail.com", password: '123456', password_confirmation: '123456', name: "Isaac Quincy", cpf: "77788899900", owner: false, buffet_id: nil },
+    { email: "olivia.client@example.com", password: '123456', password_confirmation: '123456', name: "Olivia Client", cpf: "11122233344", owner: false, buffet_id: nil },
+    { email: "pablo.partygoer@example.com", password: '123456', password_confirmation: '123456', name: "Pablo Partygoer", cpf: "44455566677", owner: false, buffet_id: nil },
   ]
 )
 
 # Criando pedidos
 Order.create!(
   [
-    { code: "PED123", user_id: 1, buffet_id: 1, event_id: 1, date: Date.today, guest_count: 80, more_details: "Detalhes do pedido 1", event_exclusive_address: true, address: "Endereço do pedido 1", status: "awaiting_buffet_evaluation" },
-    { code: "PED456", user_id: 2, buffet_id: 2, event_id: 2, date: Date.today, guest_count: 50, more_details: "Detalhes do pedido 2", event_exclusive_address: false, address: "Endereço do pedido 2", status: "awaiting_buffet_evaluation" },
-    { code: "PED789", user_id: 3, buffet_id: 3, event_id: 3, date: Date.today, guest_count: 70, more_details: "Detalhes do pedido 3", event_exclusive_address: true, address: "Endereço do pedido 3", status: "awaiting_buffet_evaluation" },
-    { code: "PED101", user_id: 4, buffet_id: 4, event_id: 4, date: Date.today, guest_count: 100, more_details: "Detalhes do pedido 4", event_exclusive_address: true, address: "Endereço do pedido 4", status: "awaiting_buffet_evaluation" },
-    { code: "PED202", user_id: 5, buffet_id: 5, event_id: 5, date: Date.today, guest_count: 120, more_details: "Detalhes do pedido 5", event_exclusive_address: false, address: "Endereço do pedido 5", status: "awaiting_buffet_evaluation" },
-    { code: "PED303", user_id: 6, buffet_id: 6, event_id: 6, date: Date.today, guest_count: 90, more_details: "Detalhes do pedido 6", event_exclusive_address: true, address: "Endereço do pedido 6", status: "awaiting_buffet_evaluation" },
-    { code: "PED404", user_id: 7, buffet_id: 7, event_id: 7, date: Date.today, guest_count: 60, more_details: "Detalhes do pedido 7", event_exclusive_address: true, address: "Endereço do pedido 7", status: "awaiting_buffet_evaluation" },
-    { code: "PED505", user_id: 8, buffet_id: 8, event_id: 8, date: Date.today, guest_count: 80, more_details: "Detalhes do pedido 8", event_exclusive_address: false, address: "Endereço do pedido 8", status: "awaiting_buffet_evaluation" },
-    { code: "PED606", user_id: 9, buffet_id: 9, event_id: 9, date: Date.today, guest_count: 110, more_details: "Detalhes do pedido 9", event_exclusive_address: true, address: "Endereço do pedido 9", status: "awaiting_buffet_evaluation" },
-    { code: "PED707", user_id: 10, buffet_id: 10, event_id: 10, date: Date.today, guest_count: 70, more_details: "Detalhes do pedido 10", event_exclusive_address: true, address: "Endereço do pedido 10", status: "awaiting_buffet_evaluation" },
+    { code: "PED123", user_id: 11, buffet_id: 1, event_id: 1, date: Date.today, guest_count: 80, more_details: "Detalhes do pedido 1", event_exclusive_address: true, address: "Endereço do pedido 1", status: 0 },
+    { code: "PED456", user_id: 12, buffet_id: 2, event_id: 2, date: Date.today, guest_count: 50, more_details: "Detalhes do pedido 2", event_exclusive_address: false, address: "Endereço do pedido 2", status: 0 },
+    { code: "PED789", user_id: 13, buffet_id: 3, event_id: 3, date: Date.today, guest_count: 70, more_details: "Detalhes do pedido 3", event_exclusive_address: true, address: "Endereço do pedido 3", status: 0 },
+    { code: "PED101", user_id: 11, buffet_id: 4, event_id: 4, date: Date.today, guest_count: 100, more_details: "Detalhes do pedido 4", event_exclusive_address: true, address: "Endereço do pedido 4", status: 0 },
+    { code: "PED202", user_id: 12, buffet_id: 5, event_id: 5, date: Date.today, guest_count: 120, more_details: "Detalhes do pedido 5", event_exclusive_address: false, address: "Endereço do pedido 5", status: 0 },
+    { code: "PED303", user_id: 13, buffet_id: 6, event_id: 6, date: Date.today, guest_count: 90, more_details: "Detalhes do pedido 6", event_exclusive_address: true, address: "Endereço do pedido 6", status: 0 },
+    { code: "PED404", user_id: 11, buffet_id: 7, event_id: 7, date: Date.today, guest_count: 60, more_details: "Detalhes do pedido 7", event_exclusive_address: true, address: "Endereço do pedido 7", status: 0 },
+    { code: "PED505", user_id: 12, buffet_id: 8, event_id: 8, date: Date.today, guest_count: 80, more_details: "Detalhes do pedido 8", event_exclusive_address: false, address: "Endereço do pedido 8", status: 0 },
+    { code: "PED606", user_id: 13, buffet_id: 9, event_id: 9, date: Date.today, guest_count: 110, more_details: "Detalhes do pedido 9", event_exclusive_address: true, address: "Endereço do pedido 9", status: 0 },
+    { code: "PED707", user_id: 11, buffet_id: 10, event_id: 10, date: Date.today, guest_count: 70, more_details: "Detalhes do pedido 10", event_exclusive_address: true, address: "Endereço do pedido 10", status: 0 },
   ]
 )

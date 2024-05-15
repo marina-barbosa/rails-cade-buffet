@@ -3,8 +3,9 @@ class Order < ApplicationRecord
   belongs_to :buffet
   belongs_to :event
 
-  validates :description, :status, :guest_count, :date, :event_id, :buffet_id, :user_id, :code, presence: true
-  validates :discount, :extra_fee, :final_value, :status, :guest_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :status, :guest_count, :date, :event_id, :buffet_id, :user_id, :code, presence: true
+  validates :status, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :discount, :extra_fee, :final_value, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
 
   enum status: { awaiting_buffet_evaluation: 0, order_confirmed: 1, order_cancelled: 2 }
 

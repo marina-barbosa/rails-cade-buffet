@@ -1,0 +1,101 @@
+/* app/assets/stylesheets/buffets/show.css */
+
+.buffet-actions {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.buffet-header {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-header{
+  display: flex;
+  gap: 30px;
+}
+
+.section-header span:first-child {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.section-header span:last-child{
+  display: flex;
+  gap: 20px;
+}
+
+.first-row{
+  display: flex;
+  gap: 4%;
+}
+
+.event-row{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buffet-details,
+.address-details,
+.payment-methods,
+.event-row {
+  background-color: var(--cream1);
+  border: 1px solid var(--cream2);
+  border-radius: 8px;  
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: 3px 3px 0 brown, 3px 1px 0 brown; 
+}
+
+.buffet-details,
+.address-details,
+.payment-methods{
+  width: 30.5%;
+  padding: 30px 40px;
+}
+
+.event-row{  
+  width: 99.6%;
+}
+
+.details-row {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+.event-details, .pricing-details {
+  width: 650px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.event-details {    
+  padding: 30px 10px 50px 10px;
+}
+
+.event-details h4 {
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.pricing-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-actions { /* buttons */
+  margin-bottom: 10px;
+}

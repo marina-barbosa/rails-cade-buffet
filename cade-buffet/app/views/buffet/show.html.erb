@@ -1,68 +1,102 @@
-<h1><%= @buffet.id%> - <%= @buffet.commercial_name %></h1>
+<%= stylesheet_link_tag 'buffet/show' %>
+
 <% if current_user && current_user.buffet_id == @buffet.id %>
-  <%= link_to 'Editar Buffet', edit_buffet_path(@buffet) %> | 
-  <% if @address %>
-    <%= link_to 'Editar Endereço', edit_address_path %> | 
-  <% else %>
-    <%= link_to 'Adicionar Endereço', new_address_path %> | 
-  <% end %>
-  <% if @payments %>
-    <%= link_to 'Editar Metodos de Pagamento', edit_payment_method_path %> |
-  <% else %>
-    <%= link_to 'Adicionar Metodos de Pagamento', new_payment_method_path %> |
-  <% end %>
-  <%= link_to 'Adicionar Evento', new_event_path %> |
-  <%= link_to 'Gerenciar Pedidos', order_index_path %>
-<% end %>
-<div>CNPJ: <%= @buffet.cnpj%></div>
-<div>Email: <%= @buffet.email%></div>
-<div>Phone: <%= @buffet.phone%></div>
-<div>Descrição: <%= @buffet.description%></div>
-<h2>Endereço</h2>
-<div>Rua: <%= @address.street%></div>
-<div>Numero: <%= @address.number%></div>
-<div>Bairro: <%= @address.neighborhood%></div>
-<div>Cidade: <%= @address.city%></div>
-<div>Estado: <%= @address.state%></div>
-<div>CEP: <%= @address.zip_code%></div>
-<h2>Metodos de Pagamento</h2>
-<div>Credit Card: <%= @payments.credit_card ? 'Sim' : 'Não' %></div>
-<div>Debit Card: <%= @payments.debit_card ? 'Sim' : 'Não' %></div>
-<div>PIX: <%= @payments.pix ? 'Sim' : 'Não' %></div>
-<div>Ticket Payment: <%= @payments.ticket_payment ? 'Sim' : 'Não' %></div>
-<h2>Eventos</h2>
-<% @events.each do |event| %>
-  <div>
-    <p> <strong><%= event.id %> - <%= event.name %>:</strong> <%= event.description %></p>
-    <% price = Price.find(event.price_id) if event.price_id != nil%>
-    <% if current_user && current_user.buffet_id == event.buffet_id %>
-      <%= link_to 'Editar Evento', edit_event_path(event) %> | 
-      <% if price %>
-        <%= link_to 'Editar Preço', edit_price_path(price) %>
-      <% else %>
-        <%= link_to 'Adicionar Preço', new_price_path %>
-      <% end %>
+  <div class="buffet-actions">
+    <%= link_to 'Editar Buffet', edit_buffet_path(@buffet), class: 'btn-action' %>
+    <% if @address %>
+      <%= link_to 'Editar Endereço', edit_address_path, class: 'btn-action' %>
+    <% else %>
+      <%= link_to 'Adicionar Endereço', new_address_path, class: 'btn-action' %>
     <% end %>
-    <div>Capacidade:</div>
-    <div>Min. de Pessoas: <%= event.min_people %></div>
-    <div>Máx. de Pessoas: <%= event.max_people %></div>
-    <p>Duração Padrão: <%= event.default_event_duration_minutes / 60 %> horas (<%= event.default_event_duration_minutes %> minutos)</p>
-    <div>Serviços:</div>
-    <div>Bebidas Alcoólicas: <%= event.alcoholic_drinks ? 'Sim' : 'Não' %></div>
-    <div>Decoração: <%= event.decoration ? 'Sim' : 'Não' %></div>
-    <div>Serviço de Estacionamento: <%= event.parking_service ? 'Sim' : 'Não' %></div>
-    <div>Serviço de Valet: <%= event.valet ? 'Sim' : 'Não' %></div>
-    <div>Local Exclusivo para Buffet: <%= event.exclusive_buffet_location ? 'Sim' : 'Não' %></div>
+    <% if @payments %>
+      <%= link_to 'Editar Metodos de Pagamento', edit_payment_method_path, class: 'btn-action' %>
+    <% else %>
+      <%= link_to 'Adicionar Metodos de Pagamento', new_payment_method_path, class: 'btn-action' %>
+    <% end %>
+    <%= link_to 'Adicionar Evento', new_event_path, class: 'btn-action' %>
+    <%= link_to 'Gerenciar Pedidos', order_index_path, class: 'btn-action' %>
   </div>
-  <div>
-    <h3>Preços weekdays</h3>
-    <div>Preço Base: <%= price.base_price_weekdays%></div>
-    <div>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekdays%></div>
-    <div>Hora Extra: <%= price.extra_event_hour_price_weekdays%></div>
-    <h3>Preços weekend</h3>
-    <div>Preço Base: <%= price.base_price_weekend%></div>
-    <div>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekend%></div>
-    <div>Hora Extra: <%= price.extra_event_hour_price_weekend%></div>
+<% end %>
+
+<div class="first-row">
+  <div class="buffet-details">
+    <h1 class="buffet-header"><%= @buffet.commercial_name %></h1>
+    <div>CNPJ: <%= @buffet.cnpj %></div>
+    <div>Email: <%= @buffet.email %></div>
+    <div>Phone: <%= @buffet.phone %></div>
+    <div>Descrição: <%= @buffet.description %></div>
   </div>
-  <%= link_to 'Registrar Pedido', new_order_path(buffet_id: @buffet.id, event_id: event.id) %>
+
+  <div class="address-details">
+    <h2 class="section-header">Endereço</h2>
+    <div>Rua: <%= @address.street %></div>
+    <div>Numero: <%= @address.number %></div>
+    <div>Bairro: <%= @address.neighborhood %></div>
+    <div>Cidade: <%= @address.city %></div>
+    <div>Estado: <%= @address.state %></div>
+    <div>CEP: <%= @address.zip_code %></div>
+  </div>
+
+  <div class="payment-methods">
+    <h2 class="section-header">Metodos de Pagamento</h2>
+    <div>Credit Card: <%= @payments.credit_card ? 'Sim' : 'Não' %></div>
+    <div>Debit Card: <%= @payments.debit_card ? 'Sim' : 'Não' %></div>
+    <div>PIX: <%= @payments.pix ? 'Sim' : 'Não' %></div>
+    <div>Ticket Payment: <%= @payments.ticket_payment ? 'Sim' : 'Não' %></div>
+  </div>
+</div>
+
+<% @events.each do |event| %>
+  <div class="event-row">
+    <div class="event-details">
+      <div>
+        <div class="section-header">
+          <span>Evento</span>
+          <% price = Price.find(event.price_id) if event.price_id != nil %>
+          <% if current_user && current_user.buffet_id == event.buffet_id %>
+            <span class="event-actions">
+              <%= link_to 'Editar Evento', edit_event_path(event), class: 'btn-action' %>
+              <% if price %>
+                <%= link_to 'Editar Preço', edit_price_path(price), class: 'btn-action' %>
+              <% else %>
+                <%= link_to 'Adicionar Preço', new_price_path, class: 'btn-action' %>
+              <% end %>
+            </span>
+          <% end %>
+        </div>
+        <div>
+          <h4><%= event.name %></h4>
+          <%= event.description %>
+        </div>
+      </div>
+      <div class="details-row">
+        <div>
+          <h4>Serviços</h4>
+          <p>Bebidas Alcoólicas: <%= event.alcoholic_drinks ? 'Sim' : 'Não' %></p>
+          <p>Decoração: <%= event.decoration ? 'Sim' : 'Não' %></p>
+          <p>Serviço de Estacionamento: <%= event.parking_service ? 'Sim' : 'Não' %></p>
+          <p>Serviço de Valet: <%= event.valet ? 'Sim' : 'Não' %></p>
+          <p>Local Exclusivo para Buffet: <%= event.exclusive_buffet_location ? 'Sim' : 'Não' %></p>
+        </div>
+        <div>
+          <h4>Capacidade</h4>
+          <p>Min. de Pessoas: <%= event.min_people %></p>
+          <p>Máx. de Pessoas: <%= event.max_people %></p>
+          <p>Duração Padrão: </p>
+          <p><%= event.default_event_duration_minutes / 60 %> horas (<%= event.default_event_duration_minutes %> minutos)</p>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-details">
+      <h4 class="section-header">Preços weekdays</h4>
+      <p>Preço Base: <%= price.base_price_weekdays %></p>
+      <p>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekdays %></p>
+      <p>Hora Extra: <%= price.extra_event_hour_price_weekdays %></p>
+      <h4 class="section-header">Preços weekend</h4>
+      <p>Preço Base: <%= price.base_price_weekend %></p>
+      <p>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekend %></p>
+      <p>Hora Extra: <%= price.extra_event_hour_price_weekend %></p>
+      <%= link_to 'Registrar Pedido', new_order_path(buffet_id: @buffet.id, event_id: event.id), class: 'btn-order' %>
+    </div>
+  </div>
 <% end %>

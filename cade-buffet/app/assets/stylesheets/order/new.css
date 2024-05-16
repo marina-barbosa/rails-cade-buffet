@@ -1,0 +1,35 @@
+/* app/assets/stylesheets/orders/new.css */
+
+.new-order-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .new-order-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .new-order-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .new-order-form input[type="text"],
+  .new-order-form input[type="date"],
+  .new-order-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+
+  

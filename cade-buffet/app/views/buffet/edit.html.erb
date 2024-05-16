@@ -1,6 +1,8 @@
+<%= stylesheet_link_tag 'buffet/edit' %>
+
 <h1>Editando Buffet</h1>
 
-<%= form_with model: @buffet do |f| %>
+<%= form_with model: @buffet, html: { class: 'edit-buffet-form' } do |f| %>
   <%= f.label :commercial_name %>
   <%= f.text_field :commercial_name %>
 
@@ -19,5 +21,5 @@
   <%= f.label :description %>
   <%= f.text_area :description %>
 
-  <%= f.submit 'Salvar Buffet' %>
+  <%= f.submit 'Salvar Buffet', class: 'btn-action' %>
 <% end %>

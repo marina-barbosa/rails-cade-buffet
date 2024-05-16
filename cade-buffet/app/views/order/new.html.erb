@@ -1,6 +1,8 @@
+<%= stylesheet_link_tag 'order/new' %>
+
 <h1>new registro works</h1>
 <h1>Cadastrar Novo Pedido</h1>
-<%= form_with model: @order, url: '/order' do |f| %>
+<%= form_with model: @order, url: '/order', html: { class: 'new-order-form' } do |f| %>
   <%= f.hidden_field :buffet_id, value: @buffet_id %>
   <%= f.hidden_field :event_id, value: @event_id %>
   <%= f.label :date %>
@@ -16,5 +18,5 @@
   <% else %>
     <%= f.hidden_field :address, value: nil %>
   <% end %>
-  <%= f.submit 'Concluir' %>
+  <%= f.submit 'Concluir', class: 'btn-action' %>
 <% end %>

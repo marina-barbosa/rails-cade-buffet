@@ -1,9 +1,14 @@
+<%= stylesheet_link_tag "buffet/index" %>
+
+<%= image_tag("buffet-icon.png", class: "img-logo", size: "50") %>
 <h1>Buffets</h1>
-<% @buffets.each do |buffet| %>
-    <div> 
-        <%= link_to buffet_path(buffet) do %>
-            <p> <%= buffet.id %> - <%= buffet.commercial_name %>
+<div class="buffet-list">
+  <% @buffets.each do |buffet| %>
+    <div class="buffet-item">
+      <%= link_to buffet_path(buffet) do %>
+        <p> <%= buffet.id %> - <%= buffet.commercial_name %>
         <% end %>
         , Cidade - Estado </p>
     </div>
-<% end %>
+  <% end %>
+</div>

@@ -1,0 +1,73 @@
+/* Estilos gerais */
+
+  
+  .card-login {
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-login h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+  }
+  
+  .field {
+    position: relative;
+    margin-bottom: 25px;
+  }
+  
+  .field label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-weight: bold;
+    color: #999;
+    transition: 0.3s;
+  }
+  
+  .field input:focus ~ label,
+  .field input:not(:placeholder-shown) ~ label {
+    top: -12px;
+    left: 0;
+    font-size: 14px;
+    color: #007bff;
+  }
+  
+  .field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .field input:focus {
+    border-color: #007bff;
+  }
+  
+  .actions {
+    text-align: center;
+  }
+  
+  .actions button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .actions button:hover {
+    background-color: #0056b3;
+  }
+  

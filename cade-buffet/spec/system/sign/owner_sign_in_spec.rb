@@ -15,6 +15,11 @@ RSpec.describe "Login de usuário Dono de buffet", type: :system do
         click_button("Entrar")
       end
 
+      within('nav') do
+        expect(page).not_to have_link 'Entrar'
+        expect(page).to have_content 'dono@buffet.com'
+        expect(page).to have_button 'Sair'
+      end
       expect(current_path).to eq new_buffet_path
       expect(page).to have_content "Você precisa cadastrar seu buffet primeiro!"
     end

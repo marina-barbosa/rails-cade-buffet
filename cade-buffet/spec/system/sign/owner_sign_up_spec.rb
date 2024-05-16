@@ -29,8 +29,15 @@ RSpec.describe "Registro de usuário dono", type: :system do
 
       click_on "Criar conta"
 
-      expect(current_path).to eq root_path
-      expect(page).to have_content "Welcome! You have signed up successfully."
+      expect(current_path).to eq new_buffet_path
+      expect(page).to have_content "Você precisa cadastrar seu buffet primeiro!"
+      expect(page).to have_content 'joao.silva@example.com'
+      expect(page).to have_button 'Sair'
+      user = User.last
+      expect(user.name).to eq 'João Silva'
+      # expect(user.cpf).to eq '12345678901'
+      expect(user.owner).to eq true
+      expect(User.last.cpf).to eq("12345678901")
     end
 
     it "com dados incompletos e deve ser inválido" do

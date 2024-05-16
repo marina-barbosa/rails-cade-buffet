@@ -9,7 +9,7 @@ class Order < ApplicationRecord
 
   enum status: { awaiting_buffet_evaluation: 0, order_confirmed: 1, order_cancelled: 2 }
 
-  before_create :set_code
+  before_validation :set_code, on: :create
 
   private
 

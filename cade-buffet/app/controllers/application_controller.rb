@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user_owner_needs_redirect
-    if current_user.owner? && current_user.buffet_id.nil? && request.path != destroy_user_session_path && request.path != new_buffet_path
+    if current_user.owner? &&
+       current_user.buffet_id.nil? &&
+       request.path != destroy_user_session_path &&
+       request.path != new_buffet_path &&
+       request.path != create_buffet_path
       redirect_to new_buffet_path, notice: 'Você precisa cadastrar seu buffet primeiro!'
     end
   end

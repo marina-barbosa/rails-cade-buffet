@@ -2,26 +2,33 @@ require "rails_helper"
 
 RSpec.describe "Registro de Endereço do Buffet", type: :system do
   it "registra um novo endereço para o buffet" do
-    user = User.create!(name: "João Silva", cpf: "12345678901", email: "joao.silva@example.com", password: "senha123", password_confirmation: "senha123", owner: true)
-    buffet = Buffet.create!(commercial_name: "Buffet A", city: "São Paulo", user: user)
+    buffet = Buffet.create!(commercial_name: "Delícias da Terra", legal_name: "Delícias da Terra Buffet e Eventos Ltda.", cnpj: "12345678901234", email: "deliciasdaterra@example.com", phone: "11987654321", description: "Especializado em culinária regional brasileira.")
 
-    visit new_address_path(buffet_id: buffet.id)
+    user = User.create!(email: "hortency@email.com", password: '123456', password_confirmation: '123456', name: "Hortência Flores", cpf: "12345678901", owner: true, buffet_id: 1)
 
-    fill_in "Rua", with: "Rua das Flores"
-    fill_in "Número", with: "123"
-    fill_in "Bairro", with: "Centro"
-    fill_in "Cidade", with: "São Paulo"
-    fill_in "Estado", with: "SP"
-    fill_in "CEP", with: "01001-000"
+    login_as user
+
+    visit root_path
+
+    click_on 'Gerenciar Buffet'
+
+    click_on 'Adicionar Endereço'
+
+    fill_in "Street", with: "Rua das Flores"
+    fill_in "Number", with: "123"
+    fill_in "Neighborhood", with: "Centro"
+    fill_in "City", with: "São Paulo"
+    fill_in "State", with: "SP"
+    fill_in "Zip code", with: "01001"
 
     click_on "Salvar Endereço"
 
     expect(page).to have_content "Endereço salvo com sucesso!"
     expect(page).to have_content "Rua: Rua das Flores"
-    expect(page).to have_content "Número: 123"
+    expect(page).to have_content "Numero: 123"
     expect(page).to have_content "Bairro: Centro"
     expect(page).to have_content "Cidade: São Paulo"
     expect(page).to have_content "Estado: SP"
-    expect(page).to have_content "CEP: 01001-000"
+    expect(page).to have_content "CEP: 01001"
   end
 end

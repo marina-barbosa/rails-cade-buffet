@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root "buffet#index"
-  resources :buffet, only: [:index, :new, :create, :show, :edit, :update]
+  resources :buffet, only: [:index, :new, :show, :edit, :update]
+  post 'create_buffet', to: 'buffet#create', as: :create_buffet
   resources :address, only: [:index, :new, :create, :show, :edit, :update]
   resources :payment_method, only: [:index, :new, :create, :show, :edit, :update]
   resources :event, only: [:index, :new, :create, :show, :edit, :update]

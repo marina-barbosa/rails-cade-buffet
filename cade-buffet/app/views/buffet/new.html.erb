@@ -1,6 +1,6 @@
 <h1>Cadastrar Novo Buffet</h1>
+<%= form_with(model: @buffet, url: create_buffet_path, local: true) do |f| %>
 
-<%= form_with model: @buffet, url: '/buffet' do |f| %>
   <%= f.label :commercial_name %>
   <%= f.text_field :commercial_name %>
 

@@ -27,23 +27,27 @@
     <div>Descrição: <%= @buffet.description %></div>
   </div>
 
-  <div class="address-details">
-    <h2 class="section-header">Endereço</h2>
-    <div>Rua: <%= @address.street %></div>
-    <div>Numero: <%= @address.number %></div>
-    <div>Bairro: <%= @address.neighborhood %></div>
-    <div>Cidade: <%= @address.city %></div>
-    <div>Estado: <%= @address.state %></div>
-    <div>CEP: <%= @address.zip_code %></div>
-  </div>
+  <% unless  @buffet.address_id.nil? %>
+    <div class="address-details">
+      <h2 class="section-header">Endereço</h2>
+      <div>Rua: <%= @address.street %></div>
+      <div>Numero: <%= @address.number %></div>
+      <div>Bairro: <%= @address.neighborhood %></div>
+      <div>Cidade: <%= @address.city %></div>
+      <div>Estado: <%= @address.state %></div>
+      <div>CEP: <%= @address.zip_code %></div>
+    </div>
+  <% end %>
 
-  <div class="payment-methods">
-    <h2 class="section-header">Metodos de Pagamento</h2>
-    <div>Credit Card: <%= @payments.credit_card ? 'Sim' : 'Não' %></div>
-    <div>Debit Card: <%= @payments.debit_card ? 'Sim' : 'Não' %></div>
-    <div>PIX: <%= @payments.pix ? 'Sim' : 'Não' %></div>
-    <div>Ticket Payment: <%= @payments.ticket_payment ? 'Sim' : 'Não' %></div>
-  </div>
+  <% unless @payments.nil? %>
+    <div class="payment-methods">
+      <h2 class="section-header">Metodos de Pagamento</h2>
+      <div>Credit Card: <%= @payments.credit_card ? 'Sim' : 'Não' %></div>
+      <div>Debit Card: <%= @payments.debit_card ? 'Sim' : 'Não' %></div>
+      <div>PIX: <%= @payments.pix ? 'Sim' : 'Não' %></div>
+      <div>Ticket Payment: <%= @payments.ticket_payment ? 'Sim' : 'Não' %></div>
+    </div>
+  <% end %>
 </div>
 
 <% @events.each do |event| %>

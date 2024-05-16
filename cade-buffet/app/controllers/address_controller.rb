@@ -25,7 +25,7 @@ class AddressController < ApplicationController
       buffet_id = current_user.buffet_id
       buffet = Buffet.find(buffet_id)
       buffet.update(address_id: @address.id)
-      return redirect_to buffet_path(buffet_id)
+      return redirect_to buffet_path(buffet_id), notice: 'Endereço salvo com sucesso!'
     end
     Rails.logger.error("Erro de validação: #{e.message}")
     render :new
@@ -58,7 +58,7 @@ class AddressController < ApplicationController
       zip_code: params[:address][:zip_code],
     )
       buffet_id = current_user.buffet_id
-      return redirect_to buffet_path(buffet_id)
+      return redirect_to buffet_path(buffet_id), notice: 'Endereço alterado com sucesso!'
     end
     Rails.logger.error("Erro de validação: #{e.message}")
     render :edit

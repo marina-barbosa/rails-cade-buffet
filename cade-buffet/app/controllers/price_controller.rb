@@ -26,7 +26,7 @@ class PriceController < ApplicationController
       buffet = Buffet.find(buffet_id)
       event = Event.where(buffet_id: buffet.id)
       event.update(price_id: @price.id)
-      return redirect_to buffet_path(buffet_id)
+      return redirect_to buffet_path(buffet_id), notice: "Preços cadastrados com sucesso."
     end
     Rails.logger.error("Erro de validação: #{e.message}")
     render :new

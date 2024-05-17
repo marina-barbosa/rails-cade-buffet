@@ -6,7 +6,7 @@ Este projeto demonstra minha aprendizagem em **Ruby on Rails**, **Desenvolviment
 
 
 
-<img src="rails-cade-buffet\cade-buffet\app\assets\images\screenshot.png" alt="Screenshot do App">
+<img src="cade-buffet/app/assets/images/screenshot.png" alt="Screenshot do App">
 
 
 
@@ -64,10 +64,10 @@ Este projeto demonstra minha aprendizagem em **Ruby on Rails**, **Desenvolviment
 <br>**SQLite**: Banco de dados utilizado para armazenar as informações durante o desenvolvimento.
 <br>**RSpec**: Ferramenta utilizada para testes.
 <br>**Vue.js**: Framework JavaScript utilizado para o frontend.
-<br>**rails** (~> 7.1.3, >= 7.1.3.2): Framework principal para desenvolvimento web. [Link](https://github.com/rails/rails)
+<br>**rails** (> 7.1.3, >= 7.1.3.2): Framework principal para desenvolvimento web. [Link](https://github.com/rails/rails)
 <br>**rack-cors**: Middleware para habilitar CORS (Cross-Origin Resource Sharing).
 <br>**sprockets-rails**: Pipeline de ativos original para Rails.
-<br>**sqlite3** (~> 1.4): Banco de dados utilizado durante o desenvolvimento.
+<br>**sqlite3** (> 1.4): Banco de dados utilizado durante o desenvolvimento.
 <br>**puma** (>= 5.0): Servidor web para Ruby/Rails.
 <br>**devise**: Autenticação de usuários. [Link](https://github.com/heartcombo/devise)
 <br>**tzinfo-data**: Necessário para fuso horário em plataformas Windows.

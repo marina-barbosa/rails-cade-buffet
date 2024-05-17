@@ -2,7 +2,7 @@
 
 **Cade Buffet** é uma app desenvolvida durante o curso TreinaDev 12 da Campus Code. Esta API foi criada para facilitar a conexão entre donos de buffets e pessoas interessadas em organizar eventos. Através desta plataforma, donos de buffets podem gerenciar suas empresas, enquanto usuários regulares podem encontrar e reservar o buffet ideal para suas festas.
 
-Este projeto demonstra minha aprendizagem em **Ruby on Rails**, **Desenvolvimento Orientado por Testes (TDD)** e uma introdução ao **Vue.js**. Para ver o repositório do aplicativo Vue.js utilizado neste projeto, [clique aqui](https://github.com/marina-barbosa/vue-cade-buffet).
+Este projeto demonstra minha aprendizagem em **Ruby on Rails**, **Desenvolvimento Orientado por Testes (TDD)** e uma introdução ao **Vue.js**. Para ver o repositório do aplicativo Vue.js [clique aqui](https://github.com/marina-barbosa/vue-cade-buffet).
 
 
 

@@ -32,7 +32,7 @@ class EventController < ApplicationController
       buffet_id: current_user.buffet_id,
     )
     if @event.save!
-      return redirect_to buffet_path(buffet_id)
+      return redirect_to buffet_path(buffet_id), notice: 'Evento cadastrado com sucesso.'
     end
     Rails.logger.error("Erro de validação: #{e.message}")
     render :new

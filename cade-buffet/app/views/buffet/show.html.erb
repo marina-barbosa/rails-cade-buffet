@@ -27,7 +27,7 @@
     <div>Descrição: <%= @buffet.description %></div>
   </div>
 
-  <% unless  @buffet.address_id.nil? %>
+  <% unless @buffet.address_id.nil? %>
     <div class="address-details">
       <h2 class="section-header">Endereço</h2>
       <div>Rua: <%= @address.street %></div>
@@ -91,16 +91,18 @@
         </div>
       </div>
     </div>
-    <div class="pricing-details">
-      <h4 class="section-header">Preços weekdays</h4>
-      <p>Preço Base: <%= price.base_price_weekdays %></p>
-      <p>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekdays %></p>
-      <p>Hora Extra: <%= price.extra_event_hour_price_weekdays %></p>
-      <h4 class="section-header">Preços weekend</h4>
-      <p>Preço Base: <%= price.base_price_weekend %></p>
-      <p>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekend %></p>
-      <p>Hora Extra: <%= price.extra_event_hour_price_weekend %></p>
-      <%= link_to 'Registrar Pedido', new_order_path(buffet_id: @buffet.id, event_id: event.id), class: 'btn-order' %>
-    </div>
+    <% unless event.price_id.nil? %>
+      <div class="pricing-details">
+        <h4 class="section-header">Preços weekdays</h4>
+        <p>Preço Base: <%= price.base_price_weekdays %></p>
+        <p>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekdays %></p>
+        <p>Hora Extra: <%= price.extra_event_hour_price_weekdays %></p>
+        <h4 class="section-header">Preços weekend</h4>
+        <p>Preço Base: <%= price.base_price_weekend %></p>
+        <p>Taxa Adicional por Pessoa: <%= price.additional_person_price_weekend %></p>
+        <p>Hora Extra: <%= price.extra_event_hour_price_weekend %></p>
+        <%= link_to 'Registrar Pedido', new_order_path(buffet_id: @buffet.id, event_id: event.id), class: 'btn-order' %>
+      </div>
+    <% end %>
   </div>
 <% end %>

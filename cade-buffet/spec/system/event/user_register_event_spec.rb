@@ -14,6 +14,7 @@ RSpec.describe "Cadastro de Evento", type: :system do
     visit new_event_path
 
     fill_in "Name", with: "Noite de Mistério"
+    fill_in "Description", with: "Uma experiência intrigante com jantar temático, mistério e entretenimento ao vivo."
     fill_in "Min people", with: 40
     fill_in "Max people", with: 60
     fill_in "Default event duration minutes", with: 300
@@ -24,8 +25,7 @@ RSpec.describe "Cadastro de Evento", type: :system do
     check "Exclusive buffet location"
     click_on "Salvar"
 
-    expect(page).to have_content "TESTE"
-    # expect(current_path).to eq buffet_path(@buffet)
+    expect(current_path).to eq buffet_path(@buffet)
     expect(page).to have_content "Noite de Mistério"
     expect(page).to have_content "Evento cadastrado com sucesso."
   end

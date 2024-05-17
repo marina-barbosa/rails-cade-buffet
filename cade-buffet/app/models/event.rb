@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :price
+  belongs_to :price, optional: true
   belongs_to :buffet
 
   validates :name, :description, presence: true

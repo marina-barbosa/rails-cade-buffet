@@ -23,9 +23,9 @@ describe "Cadastra novos preços para um evento", type: :system do
     expect(page).to have_content "Preços cadastrados com sucesso."
   end
 
-  it "sem sucesso/ dados invalidos/ preço negativo" do
-  end
+  # it "sem sucesso/ dados invalidos/ preço negativo" do
+  # end
 
-  it "e atualiza os preços" do
-  end
+  # it "e atualiza os preços" do
+  # end
 end

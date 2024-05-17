@@ -60,11 +60,10 @@ Este projeto demonstra minha aprendizagem em **Ruby on Rails**, **Desenvolviment
 
 ## Tecnologias e Gems Utilizadas
 
-<br>**Ruby on Rails**: Framework principal utilizado no desenvolvimento da API. [Link](https://github.com/rails/rails)
+<br>**Ruby** `3.2.3 (2024-01-18 revision 52bb2ac0a6) [x64-mingw-ucrt]`
+<br>**Rails** `7.1.3.2`: Framework principal utilizado no desenvolvimento da API. [Link](https://github.com/rails/rails)
 <br>**SQLite**: Banco de dados utilizado para armazenar as informações durante o desenvolvimento.
-<br>**RSpec**: Ferramenta utilizada para testes.
 <br>**Vue.js**: Framework JavaScript utilizado para o frontend.
-<br>**rails** (> 7.1.3, >= 7.1.3.2): Framework principal para desenvolvimento web. [Link](https://github.com/rails/rails)
 <br>**rack-cors**: Middleware para habilitar CORS (Cross-Origin Resource Sharing).
 <br>**sprockets-rails**: Pipeline de ativos original para Rails.
 <br>**sqlite3** (> 1.4): Banco de dados utilizado durante o desenvolvimento.
@@ -78,12 +77,6 @@ Este projeto demonstra minha aprendizagem em **Ruby on Rails**, **Desenvolviment
 
 
 
-## Requisitos
-
-
-**Rails version**: `7.1.3.2`
-
-**Ruby version**: `3.2.3 (2024-01-18 revision 52bb2ac0a6) [x64-mingw-ucrt]`
 
 ## Configuração do Ambiente
 

@@ -25,6 +25,7 @@ class OrderController < ApplicationController
       user_id: current_user.id,
       buffet_id: params[:buffet_id],
       event_id: params[:event_id],
+      status: 0,
     )
     @order.buffet = Buffet.find_by_id(params[:order][:buffet_id])
     @order.event = Event.find_by_id(params[:order][:event_id])

@@ -1,14 +1,20 @@
 class Api::V1::EventController < ActionController::API
   def index
     buffet_id = params[:buffet_id]
-    events = Event.where(buffet_id: buffet_id)
-    render status: 200, json: events
+    buffet = Buffet.find_by(id: buffet_id)
+
+    if buffet
+      events = Event.where(buffet_id: buffet_id)
+      render status: 200, json: events
+    else
+      render status: 404, json: { error: "Buffet não encontrado" }
+    end
   end
 
   def check_availability
     event_id = params[:event_id]
     date = params[:date]
-    guest_count = params[:guest_count]
+    guest_count = params[:guest_count].to_i
 
     date = Date.parse(date)
 

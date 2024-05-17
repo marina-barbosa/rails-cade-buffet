@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   validates :status, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :discount, :extra_fee, :final_value, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
 
-  enum status: { awaiting_buffet_evaluation: 0, order_confirmed: 1, order_cancelled: 2 }
+  enum status: { awaiting_buffet_evaluation: 0, awaiting_customer_confirmation: 1, order_confirmed: 2, order_cancelled: 3 }
 
   before_validation :set_code, on: :create
 
